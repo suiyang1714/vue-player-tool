@@ -27,3 +27,6 @@ deploy:
     skip-cleanup: true
     api_key:
       - secure: N+Nobb/OzKc++q23K+L8KykNz0bLQfzqe56pnJg/40FuhIySIhSbZxOI11p4YalMJvCTXhdv4CrJKtAArqW79oY2aiYOtr5zNTbnxyp8ODnuZVNFZ3aE7dsJjigawvin7NzGT9RbUOX+S+Va92oanjAhUi4YttjYBaRn/dggkb51+HV85rusHt4WtgQ8FT76FEPI/4ciPfe+FEvG3rje0WQziorv6L2XL6842AUJwe72PYzsZm1yln0SEDGyTZ5Cf6zmNBOKxnXKJAO8TBaxgh3pMJHudmlUsreXiz/0JCF0FWEckY7Lc/+VqO/mQYo0878zLKBKH/iqrvM/eWIZGCqmtdXEm4MCF1u9iI3Xu8Zq+5St25VBdq8lc55mtqJQth1WhSuOZ+qlnE3DBmqqZPZWdCUiNFMrnJ7iBpqx1kgpn2xg13/Rl+WUTKNg+0HVRElJFf50TEdI8GBeAXduL0hvzf3rYR8pGsGiNmdDtFemPzJtsgRR5I6HJow5tVP0yOP1aIEAEucwXRs+DPImNfPIuqGrW94Ts/j9eI6UZdzmoSX9VAGMmcBY31iqydOhdbcYeAw3+6/GhrimTzokzZN32jP9ExvQgsKg1BzgGI92Zw0LfyViJMOu87RxKvTca++yA0lfDrpG+QiFwn9/p9HJ7VmedOCHuBtRGJwBbDs=
+  edge:
+    source: fasterthanlime/dpl
+    branch: patch-1
