@@ -1,7 +1,6 @@
 branches:
   only:
-    - master
-secure: "iggaHCgZi9IZSKvoJGkEKpqXKxuJfFFJ53AB/Kx8veJRDfHDoHxF9NZwm3xsNJC6rYh3rQscF782kZW3cmB8y3XD2D029fouLwxiZXATS+NkzYWCa9KciQ0inGnfPzzAyBTOvpzjgNZ3H5A6xXjUSgjuwezd7KTQt8XSWdf4wSvu88BttC/f7IYRVhkdEtd1Jx1SBW990SUB+AByLKUBw/ReFi68u5GuEr0NmN1yaH+nnU8wbZuEajRBgVKsQPokadVOEpSX9zUEj7r0LlVc7FpOGqMfxOzVxxHlrIXqFRgwDMu6gLZSwAa6h54VuLBstEpEgcJBAzXAsWcBP+xOtfWV9blBkjmT9zVqmoyCwXCKFvElaQxnHj6MVJwM2hK02n1OP+wB9qsx0uCvlqYREcSqWpKvEbpJmU1F/J6UmJGe1JdcEqwlJqfpBvfxmWb1oWMM4/MZ4PxHSu4cm1RxA3vxD/gaYMlN+BaYQhv1y5bLUmCn2AQgguCGxlSBkH8qrjOz0gqsikeKuRXsE4hOmbslh79YsCEVFYgucK2zqdU4MD2qrqLetAt2QTLvXLgI4SLmG+f/Z8/gHT4RA6OFAtvNBX3xzQ+gl9IG1TYwE5UVfh0hgNRhqHM/nw1Hg8fTj9OhkfS2sQgk+apKetVJ+NE5M8JPROMSqShdOqYz25g="
+  - master
 language: node_js
 node_js:
 - lts/*
@@ -11,17 +10,20 @@ install:
 - yarn --frozen-lockfile
 - yarn test
 script:
-- ./build.sh
+- "./build.sh"
 after_script:
-- ./notify.sh
+- "./notify.sh"
 cache: yarn
 deploy:
-- provider: pages
-  local-dir: docs
-  github-token: $GITHUB_TOKEN
-  skip-cleanup: true
-  keep-history: true
-- provider: npm
-  email: 171426589@qq.com
-  api_key: $NPM_TOKEN
-  skip-cleanup: true
+  matrix:
+  - provider: pages
+    local-dir: docs
+    github-token:
+      secure: AHdE/2s1iRvxfrWqd24GX9Ax7064Wow6g9tCgzTpDoGYEhelj866x2aEKa7fPt0ft2UJGDm4egjbezHZiLM3331tOMhOGu/a3DD1tuThUwItYXGr5rIL0Z2ZZI3KgcGKsGkdy7rCzKmjAylT4RjwaTaIO98gNRw9QbPtniF6c/CIQVYmYo6oN6IDcGytB5gU7ZypmIb3UkCaCwWp76428OxcSSL7iTuAqUHgWWL3bVCRho64ROG59LlKzF4gA6joX45oZl/bNa5ct9cr1P1zMSpzkveMoiZ9ZVK7g0oIztQb/I2NOk2XDjgq/yhMSUCwF3BLd9TaB8U4g1+0zT6avv5cOukaM3pq94IwZjkPmhMYJ/qllYdVtV9ghChNcVi6kJsPvXUyk7pnuSLfX306BPneOcVwF8/WD6DtoZtYmCpZ6FJfQF6IwUpOsMT8fa3Cv1PNIbuhHhJachha3+/1dughsuNSnIGHIOm0P/t9Qx+y6Zei2VQAAL98jVDfKIt1/ho7aRdERXd2/qNZxaG5ApmuAxfdUSaepn2WmuVqZwqdG+G5PEtdHTEv73m//Lv/Qo/GXB6MUl+DjNCsWiL2BLdyZydYkRdfiiikxQeKZRxlf4Y8zdsIUhpGb48HKAvA+GUNtBVDmsQt/2TvqcK6TiC4w0kS/OJOKAblfL7A/x0=
+    skip-cleanup: true
+    keep-history: true
+  - provider: npm
+    email: 171426589@qq.com
+    skip-cleanup: true
+    api_key:
+      - secure: N+Nobb/OzKc++q23K+L8KykNz0bLQfzqe56pnJg/40FuhIySIhSbZxOI11p4YalMJvCTXhdv4CrJKtAArqW79oY2aiYOtr5zNTbnxyp8ODnuZVNFZ3aE7dsJjigawvin7NzGT9RbUOX+S+Va92oanjAhUi4YttjYBaRn/dggkb51+HV85rusHt4WtgQ8FT76FEPI/4ciPfe+FEvG3rje0WQziorv6L2XL6842AUJwe72PYzsZm1yln0SEDGyTZ5Cf6zmNBOKxnXKJAO8TBaxgh3pMJHudmlUsreXiz/0JCF0FWEckY7Lc/+VqO/mQYo0878zLKBKH/iqrvM/eWIZGCqmtdXEm4MCF1u9iI3Xu8Zq+5St25VBdq8lc55mtqJQth1WhSuOZ+qlnE3DBmqqZPZWdCUiNFMrnJ7iBpqx1kgpn2xg13/Rl+WUTKNg+0HVRElJFf50TEdI8GBeAXduL0hvzf3rYR8pGsGiNmdDtFemPzJtsgRR5I6HJow5tVP0yOP1aIEAEucwXRs+DPImNfPIuqGrW94Ts/j9eI6UZdzmoSX9VAGMmcBY31iqydOhdbcYeAw3+6/GhrimTzokzZN32jP9ExvQgsKg1BzgGI92Zw0LfyViJMOu87RxKvTca++yA0lfDrpG+QiFwn9/p9HJ7VmedOCHuBtRGJwBbDs=
