@@ -11,6 +11,8 @@ install:
 - yarn test
 script:
 - "./build.sh"
+after_success:
+- gem install dpl
 after_script:
 - "./notify.sh"
 cache: yarn
