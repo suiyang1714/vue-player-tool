@@ -65,8 +65,24 @@ module.exports = {
           loaders: ['vue-style-loader', 'css-loader', 'less-loader']
         },
         {
+          test: /\.scss$/,
+          loaders: ['vue-style-loader', 'css-loader', 'sass-loader']
+        },
+        {
           test: /\.(woff2?|eot|[ot]tf)(\?.*)?$/,
           loader: 'file-loader'
+        },
+        {
+          test: /\.(gif|jpg|jpeg|png)$/,
+          use: [
+            {
+              loader: 'url-loader', //把图片转base64  直接写在js里面  减少http请求
+              options: {
+                limit: 10240,
+                name: 'images/[name].[ext]'
+              }
+            }
+          ]
         }
       ]
     },

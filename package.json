@@ -2,11 +2,11 @@
   "name": "@aditya/vue-player-tool",
   "version": "1.0.0",
   "description": "",
-  "author": "https://github.com/aditya",
+  "author": "https://github.com/suiyang1714",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aditya/vue-player-tool.git"
+    "url": "https://github.com/suiyang1714/vue-player-tool.git"
   },
   "keywords": [
     "vue",
@@ -34,7 +34,12 @@
     "stdver": "standard-version -m '[skip ci] chore(release): v%s'",
     "release": "gren release --override"
   },
-  "dependencies": {},
+  "dependencies": {
+    "hls.js": "^0.12.4",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "url-loader": "^2.2.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/plugin-transform-runtime": "^7.4.3",
